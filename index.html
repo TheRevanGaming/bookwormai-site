@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Worm AI – Worldbuilding, Game Dev, Music & More</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Book Worm AI – a creator-grade AI copilot for worldbuilding, AAA game design, book writing, and music development."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="bw-header">
+    <div class="bw-container bw-header-inner">
+      <div class="bw-logo">
+        <!-- You can replace this SVG with your generated logo later -->
+        <div class="bw-logo-icon">
+          <svg viewBox="0 0 300 300" aria-hidden="true">
+            <rect width="300" height="300" fill="none" />
+            <path
+              d="M150 60
+                 C110 60, 80 95, 80 135
+                 C80 180, 120 215, 160 205
+                 C190 198, 205 170, 190 150
+                 C175 130, 145 135, 140 155
+                 C135 175, 155 190, 175 180"
+              stroke="currentColor"
+              stroke-width="10"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="bw-logo-text">
+          <span class="bw-logo-title">Book Worm AI</span>
+          <span class="bw-logo-subtitle">Worlds. Games. Music.</span>
+        </div>
+      </div>
+
+      <button class="bw-nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav class="bw-nav" id="mainNav">
+        <a href="#hero">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="bw-section bw-hero">
+      <div class="bw-container bw-hero-grid">
+        <div class="bw-hero-copy">
+          <h1>Book Worm AI<br /><span>Your AAA-grade creative copilot.</span></h1>
+          <p>
+            Book Worm AI is a creator-focused assistant that helps you build
+            entire universes, design AAA-style games, write novels, craft
+            original music, and keep every piece of lore perfectly consistent.
+          </p>
+
+          <div class="bw-hero-actions">
+            <a class="bw-btn bw-btn-primary" href="#pricing">View Plans</a>
+            <a class="bw-btn bw-btn-ghost" href="#features">Explore Features</a>
+          </div>
+
+          <p class="bw-hero-note">
+            Already installed locally? <br />
+            <strong>Launch your local app:</strong>
+            <a href="http://localhost:5050" target="_blank" rel="noreferrer">
+              http://localhost:5050
+            </a>
+          </p>
+        </div>
+
+        <div class="bw-hero-panel">
+          <div class="bw-hero-card">
+            <div class="bw-pill">Live Demo Mock</div>
+            <h2>What can I help you create today?</h2>
+            <ul class="bw-hero-list">
+              <li>🌍 Design a new realm with unique geology, flora & fauna.</li>
+              <li>🎮 Outline an act-by-act AAA game campaign.</li>
+              <li>📚 Expand locked-in canon for your book series.</li>
+              <li>🎵 Write chorus + verses for a dark trap OST.</li>
+            </ul>
+            <p class="bw-hero-footer">
+              Book Worm keeps your canon organized and your ideas coherent,
+              across worlds, games, and discographies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="bw-section">
+      <div class="bw-container">
+        <h2 class="bw-section-title">Built for serious creators.</h2>
+        <p class="bw-section-subtitle">
+          Not a toy chatbot. A studio-grade assistant for worldbuilders,
+          writers, game devs, and musicians.
+        </p>
+
+        <div class="bw-feature-grid">
+          <article class="bw-feature-card">
+            <h3>Story Lab</h3>
+            <p>
+              Design entire universes: realms, cultures, religions, timelines,
+              magic systems, and political structures — all while obeying your
+              locked-in canon.
+            </p>
+            <ul>
+              <li>Series bibles & codices</li>
+              <li>Character arcs & romance systems</li>
+              <li>Pre- & post-cataclysm timelines</li>
+            </ul>
+          </article>
+
+          <article class="bw-feature-card">
+            <h3>Game Forge</h3>
+            <p>
+              Treat your ideas like a full-blown design doc. Systems, combat
+              loops, progression, bosses, modes, and UX — all structured for
+              AAA-style development.
+            </p>
+            <ul>
+              <li>Combat, abilities, and progression trees</li>
+              <li>Campaign, Survival, Hunt, BR modes</li>
+              <li>Enemy archetypes & boss escalation</li>
+            </ul>
+          </article>
+
+          <article class="bw-feature-card">
+            <h3>Music Studio</h3>
+            <p>
+              From lyrical concepts to full track structures and OST directions,
+              Book Worm helps shape the sound of your worlds and games.
+            </p>
+            <ul>
+              <li>Hooks, verses, bridges, ad-libs</li>
+              <li>Beat & OST concept briefs</li>
+              <li>Ambience & sound design ideas</li>
+            </ul>
+          </article>
+
+          <article class="bw-feature-card">
+            <h3>Language Lab</h3>
+            <p>
+              Build visual and spoken languages from scratch: phonetics,
+              scripts, grammar, idioms, and cultural usage tied into your lore.
+            </p>
+            <ul>
+              <li>Phoneme sets & pronunciation guides</li>
+              <li>Writing systems & glyph concepts</li>
+              <li>Sample conversations & phrases</li>
+            </ul>
+          </article>
+
+          <article class="bw-feature-card">
+            <h3>Canon Vault</h3>
+            <p>
+              Store your lore, races, systems, flora/fauna, and rules as
+              locked canon. Book Worm retrieves it and refuses to contradict
+              it unless you explicitly authorize a retcon.
+            </p>
+            <ul>
+              <li>Project-based lore libraries</li>
+              <li>Locked vs proposal canon</li>
+              <li>Super-deep continuity checks</li>
+            </ul>
+          </article>
+
+          <article class="bw-feature-card">
+            <h3>Image & Concept Support</h3>
+            <p>
+              Generate god-tier text prompts for concept art: characters,
+              biomes, key art, and cover designs tailored to your universe’s
+              visual identity.
+            </p>
+            <ul>
+              <li>AAA-grade image prompts</li>
+              <li>Character & creature sheets</li>
+              <li>Biome & key art compositions</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="bw-section bw-section-alt">
+      <div class="bw-container">
+        <h2 class="bw-section-title">Pricing built for creators.</h2>
+        <p class="bw-section-subtitle">
+          Start small, scale when you’re ready. You stay in control of your
+          OpenAI and infrastructure costs.
+        </p>
+
+        <div class="bw-pricing-grid">
+          <article class="bw-price-card">
+            <h3>Free / Local</h3>
+            <p class="bw-price-tag">$0</p>
+            <p class="bw-price-note">Run it on your own machine.</p>
+            <ul>
+              <li>Local-only usage</li>
+              <li>Full creative feature set</li>
+              <li>You pay only your own API costs</li>
+              <li>Perfect for early drafting & experiments</li>
+            </ul>
+            <a class="bw-btn bw-btn-ghost" href="#how">See Setup Steps</a>
+          </article>
+
+          <article class="bw-price-card bw-price-card-highlight">
+            <h3>Creator Tier</h3>
+            <p class="bw-price-tag">$X / month</p>
+            <p class="bw-price-note">For serious solo creators.</p>
+            <ul>
+              <li>Hosted web app (coming soon)</li>
+              <li>Priority canon storage & backups</li>
+              <li>Higher limits for projects & docs</li>
+              <li>Early access to new tools</li>
+            </ul>
+            <a
+              class="bw-btn bw-btn-primary"
+              href="#"
+              id="creatorPlanBtn"
+            >
+              Join Creator Waitlist
+            </a>
+          </article>
+
+          <article class="bw-price-card">
+            <h3>Studio Tier</h3>
+            <p class="bw-price-tag">Contact</p>
+            <p class="bw-price-note">For teams & studios.</p>
+            <ul>
+              <li>Multi-user project support</li>
+              <li>Custom workflows & integrations</li>
+              <li>Private infrastructure options</li>
+              <li>Dedicated support & onboarding</li>
+            </ul>
+            <a class="bw-btn bw-btn-ghost" href="mailto:youremail@example.com">
+              Contact for Studio Access
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="bw-section">
+      <div class="bw-container">
+        <h2 class="bw-section-title">How Book Worm AI works.</h2>
+        <div class="bw-steps-grid">
+          <article class="bw-step-card">
+            <span class="bw-step-number">1</span>
+            <h3>Install locally</h3>
+            <p>
+              Run Book Worm on your own machine using Python + FastAPI. Keep
+              your canon and drafts under your control.
+            </p>
+          </article>
+
+          <article class="bw-step-card">
+            <span class="bw-step-number">2</span>
+            <h3>Import your universes</h3>
+            <p>
+              Paste in your existing worlds, races, systems, flora/fauna, and
+              mechanics as locked canon. Book Worm learns your universe.
+            </p>
+          </article>
+
+          <article class="bw-step-card">
+            <span class="bw-step-number">3</span>
+            <h3>Create across domains</h3>
+            <p>
+              Switch between Storytelling, Game Dev, Music, Language Lab, and
+              Coding tabs — each tuned for AAA-quality output.
+            </p>
+          </article>
+
+          <article class="bw-step-card">
+            <span class="bw-step-number">4</span>
+            <h3>Scale to a hosted app</h3>
+            <p>
+              When you’re ready, move to hosted infrastructure and Stripe
+              billing for collaborators, clients, or fans.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bw-section bw-section-alt">
+      <div class="bw-container">
+        <h2 class="bw-section-title">Frequently Asked Questions</h2>
+
+        <div class="bw-faq-grid">
+          <article class="bw-faq-item">
+            <h3>Is Book Worm AI just another chatbot?</h3>
+            <p>
+              No. It’s designed as a project-based creative copilot that tracks
+              canon, respects locked-in lore, and supports multiple domains:
+              storytelling, game design, and music.
+            </p>
+          </article>
+
+          <article class="bw-faq-item">
+            <h3>Can it help with existing universes?</h3>
+            <p>
+              Yes. You can import your current worlds, systems, and series,
+              then use Book Worm to expand, clean, and organize everything
+              without breaking continuity.
+            </p>
+          </article>
+
+          <article class="bw-faq-item">
+            <h3>Does it support AAA-style game dev?</h3>
+            <p>
+              It’s built to think in terms of mechanics, loops, progression,
+              and modes — the same way a real design doc does — while staying
+              lore-aware.
+            </p>
+          </article>
+
+          <article class="bw-faq-item">
+            <h3>Can I monetize Book Worm?</h3>
+            <p>
+              Yes. You can charge for access to your hosted version, offer
+              presets for specific universes, or bundle it with your own tools,
+              as long as you respect OpenAI’s usage policies and terms.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bw-footer">
+    <div class="bw-container bw-footer-inner">
+      <p>© <span id="year"></span> Book Worm AI. All rights reserved.</p>
+      <p class="bw-footer-links">
+        <a href="#hero">Back to top</a>
+        <span>•</span>
+        <a href="mailto:youremail@example.com">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
