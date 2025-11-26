@@ -1,252 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Book Worm AI – Worldbuilding, Game Dev & Music Assistant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Worm AI</title>
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Google Analytics (insert your own ID later) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-XXXXXXXXXX");
+</script>
+
 </head>
-
 <body>
-  <!-- HEADER -->
-  <header class="bw-header">
-    <div class="bw-container bw-header-inner">
 
-      <div class="bw-logo">
-        <!-- Celestial Worm Glyph logo -->
-        <svg width="40" height="40" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <rect width="300" height="300" fill="#0D0F12"/>
-          <path
-            d="
-              M150 60
-              C110 60, 80 95, 80 135
-              C80 180, 120 215, 160 205
-              C190 198, 205 170, 190 150
-              C175 130, 145 135, 140 155
-              C135 175, 155 190, 175 180
-            "
-            stroke="#F3F4F6"
-            stroke-width="10"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        <span class="bw-logo-text">Book Worm AI</span>
-      </div>
+<header>
+  <img src="logo.svg" class="logo" alt="Book Worm AI Logo" />
+  <h1>Book Worm AI</h1>
+  <p class="tagline">Your All-In-One Mega-Intelligence for Worlds, Games & Stories</p>
+  <a href="https://therevangaming.github.io/bookwormai/" class="button primary">Launch App</a>
+</header>
 
-      <nav class="bw-nav">
-        <a href="#features">Features</a>
-        <a href="#domains">Domains</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+<section class="hero">
+  <h2>Create Worlds. Generate Art. Build Games. Write Books.</h2>
+  <p>Book Worm AI is a next-generation creative intelligence built to help authors,
+     worldbuilders, and game developers produce AAA-quality content.</p>
+</section>
 
+<section class="features">
+  <h2>What She Can Do</h2>
+  <div class="grid">
+    <div class="card">AAA Game Development Blueprinting</div>
+    <div class="card">Full Novel Writing Assistance</div>
+    <div class="card">Intelligent Worldbuilding Engine</div>
+    <div class="card">Deep Lore & Canon Management</div>
+    <div class="card">Music + Lyrics Creation</div>
+    <div class="card">AI-Generated Concept Art</div>
+    <div class="card">Custom Language Construction</div>
+    <div class="card">True Multi-Project Isolation</div>
+  </div>
+</section>
+
+<section class="pricing">
+  <h2>Subscription Plans</h2>
+  <p>Choose your tier to unlock Book Worm’s full power.</p>
+
+  <div class="plans">
+    <div class="plan">
+      <h3>Basic</h3>
+      <p class="price">$10 / month</p>
+      <p>30-day free trial</p>
+      <a href="https://buy.stripe.com/test_9B65kvcwNdYi3rN0Oq1Fe00" class="button secondary">Start Basic</a>
     </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="bw-hero">
-    <div class="bw-container bw-hero-inner">
-
-      <div class="bw-hero-text">
-        <h1>Book Worm AI</h1>
-        <p class="bw-hero-subtitle">
-          Your AAA-grade partner for <strong>storytelling, game development, worldbuilding, and music creation</strong>.
-          Built to help creators build worlds, characters, games, and universes with professional precision.
-        </p>
-
-        <div class="bw-hero-cta">
-          <a href="#pricing" class="bw-btn bw-btn-primary">Get Early Access</a>
-          <a href="#features" class="bw-btn bw-btn-ghost">Explore Features</a>
-        </div>
-
-        <p class="bw-hero-footnote">Subscriptions support continued development & future cloud hosting.</p>
-      </div>
-
-      <div class="bw-hero-card">
-        <h2>What Book Worm AI Does</h2>
-        <ul>
-          <li>Tracks <strong>locked canon</strong> across huge universes</li>
-          <li>Designs <strong>AAA game systems & bosses</strong></li>
-          <li>Builds <strong>races, cultures, languages</strong></li>
-          <li>Constructs <strong>realistic geology, flora & fauna</strong></li>
-          <li>Writes <strong>lyrics, OST concepts, SFX</strong></li>
-        </ul>
-      </div>
-
+    <div class="plan popular">
+      <h3>Pro</h3>
+      <p class="price">$20 / month</p>
+      <p>Full writing & worldbuilding suite</p>
+      <a href="https://buy.stripe.com/test_14A6ozcwN5rM0fB7cO1Fe01" class="button primary">Upgrade to Pro</a>
     </div>
-  </section>
 
-  <!-- FEATURES -->
-  <section id="features" class="bw-section">
-    <div class="bw-container">
-      <h2 class="bw-section-title">Core Features</h2>
-
-      <div class="bw-grid bw-grid-3">
-        <div class="bw-card">
-          <h3>Canon-Safe Worldbuilding</h3>
-          <p>Create worlds, regions, cultures, and races with a sophisticated canon guard system.</p>
-        </div>
-
-        <div class="bw-card">
-          <h3>AAA Game Development</h3>
-          <p>Boss phases, progression, UI, systems design, and level concepts written like a professional GDD.</p>
-        </div>
-
-        <div class="bw-card">
-          <h3>Music & Sound Direction</h3>
-          <p>Lyrics, vocal flows, OST structures, ambience concepts, and SFX breakdowns.</p>
-        </div>
-
-        <div class="bw-card">
-          <h3>Image Prompt Studio</h3>
-          <p>Enhance descriptions into AAA-grade art prompts for characters, worlds, and concept frames.</p>
-        </div>
-
-        <div class="bw-card">
-          <h3>Project Separation</h3>
-          <p>Write novels, build games, and produce music in separate memory containers.</p>
-        </div>
-
-        <div class="bw-card">
-          <h3>Language Lab</h3>
-          <p>Build fictional languages: phonetics, glyphs, grammar, and cultural naming conventions.</p>
-        </div>
-      </div>
+    <div class="plan">
+      <h3>Patron</h3>
+      <p class="price">$49 / month</p>
+      <p>Everything + high-tier support</p>
+      <a href="https://buy.stripe.com/test_3cI5kv0O51bw5zV0Oq1Fe02" class="button secondary">Become a Patron</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DOMAINS -->
-  <section id="domains" class="bw-section bw-section-alt">
-    <div class="bw-container">
-      <h2 class="bw-section-title">Three Creative Domains</h2>
+<section class="newsletter">
+  <h2>Get Updates</h2>
+  <p>Enter your email to receive feature updates and release notes.</p>
+  <input type="email" id="emailInput" placeholder="name@example.com" />
+  <button onclick="saveEmail()">Join List</button>
+  <p id="emailMessage"></p>
+</section>
 
-      <div class="bw-grid bw-grid-3">
-        <div class="bw-card bw-card-alt">
-          <h3>Storytelling</h3>
-          <p>Worldbuilding, lore, character arcs, romance, geography & realism structures.</p>
-        </div>
+<footer>
+  <p>© 2025 Book Worm AI — Created by The Revan Gaming</p>
+</footer>
 
-        <div class="bw-card bw-card-alt">
-          <h3>Game Development</h3>
-          <p>Combat, enemy design, level pacing, quests, modes, and GDD structure.</p>
-        </div>
-
-        <div class="bw-card bw-card-alt">
-          <h3>Music Development</h3>
-          <p>Lyrics, beats, OST composition ideas, soundscapes, ambience, and audio systems.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="bw-section">
-    <div class="bw-container">
-      <h2 class="bw-section-title">Subscription Tiers</h2>
-      <p class="bw-section-subtitle">Support the development of Book Worm AI and unlock enhanced features.</p>
-
-      <div class="bw-grid bw-grid-3 bw-pricing-grid">
-
-        <!-- BASIC -->
-        <div class="bw-card bw-pricing-card">
-          <h3>Basic Tier</h3>
-          <p class="bw-price">Free 30-day trial, then $10 / month</p>
-          <ul class="bw-price-list">
-            <li>Full access to current Book Worm AI build</li>
-            <li>Local app usage</li>
-            <li>Access to regular updates</li>
-            <li>Perfect for solo creators getting started</li>
-          </ul>
-          <a
-            class="bw-btn bw-btn-primary bw-full-width"
-            href="https://buy.stripe.com/test_9B65kvcwNdYi3rN0Oq1Fe00"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Start Basic Trial
-          </a>
-        </div>
-
-        <!-- PRO -->
-        <div class="bw-card bw-pricing-card bw-pricing-card-featured">
-          <h3>Pro Tier</h3>
-          <p class="bw-price">$20 / month</p>
-          <ul class="bw-price-list">
-            <li>Everything in Basic</li>
-            <li>Advanced templates & workflows</li>
-            <li>Priority feature requests</li>
-            <li>Ideal for serious authors & devs</li>
-          </ul>
-          <a
-            class="bw-btn bw-btn-primary bw-full-width"
-            href="https://buy.stripe.com/test_14A6ozcwN5rM0fB7cO1Fe01"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Subscribe – Pro
-          </a>
-        </div>
-
-        <!-- PREMIUM -->
-        <div class="bw-card bw-pricing-card">
-          <h3>Premium Tier</h3>
-          <p class="bw-price">$49 / month</p>
-          <ul class="bw-price-list">
-            <li>Everything in Pro</li>
-            <li>Your name in the supporter credits (optional)</li>
-            <li>Premium supporter badge</li>
-            <li>Directly fuels ongoing Book Worm AI evolution</li>
-          </ul>
-          <a
-            class="bw-btn bw-btn-outline bw-full-width"
-            href="https://buy.stripe.com/test_3cI5kv0O51bw5zV0Oq1Fe02"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Subscribe – Premium
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="bw-section bw-section-alt">
-    <div class="bw-container">
-      <h2 class="bw-section-title">FAQ</h2>
-
-      <div class="bw-faq">
-
-        <div class="bw-faq-item">
-          <h3>Is Book Worm AI online?</h3>
-          <p>Right now, Book Worm AI runs locally. These subscriptions support hosting & future online access.</p>
-        </div>
-
-        <div class="bw-faq-item">
-          <h3>Can I use this for commercial work?</h3>
-          <p>Yes. Everything you create with Book Worm AI belongs to you.</p>
-        </div>
-
-        <div class="bw-faq-item">
-          <h3>How do payments work?</h3>
-          <p>All payments are handled securely by Stripe. You can cancel your subscription at any time.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bw-footer">
-    <div class="bw-container bw-footer-inner">
-      <span>© <span id="year"></span> Book Worm AI. All rights reserved.</span>
-      <span>Created by TheRevanGaming</span>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
