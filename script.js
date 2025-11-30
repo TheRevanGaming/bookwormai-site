@@ -1,15 +1,40 @@
-function saveEmail() {
-  const email = document.getElementById("emailInput").value.trim();
-  const msg = document.getElementById("emailMessage");
+// Mobile nav toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const nav = document.querySelector(".main-nav");
 
-  if (!email || !email.includes("@")) {
-    msg.innerText = "Please enter a valid email.";
-    return;
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("show");
+    });
   }
 
-  let list = JSON.parse(localStorage.getItem("bookworm_email_list") || "[]");
-  list.push(email);
-  localStorage.setItem("bookworm_email_list", JSON.stringify(list));
+  // Smooth scroll for in-page links
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || targetId === "#") return;
 
-  msg.innerText = "Thanks! You are subscribed.";
-}
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      e.preventDefault();
+      window.scrollTo({
+        top: target.offsetTop - 70,
+        behavior: "smooth",
+      });
+
+      // Close mobile nav after click
+      if (nav && nav.classList.contains("show")) {
+        nav.classList.remove("show");
+      }
+    });
+  });
+
+  // Footer year
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+});
