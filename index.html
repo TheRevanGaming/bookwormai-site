@@ -2,939 +2,315 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Book Worm AI – AAA Story, Game Dev & Music Lab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Worm AI – Beta Launch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Book Worm AI – an AAA-grade assistant for worldbuilding, game development, music, languages, and book writing."
+    content="Book Worm AI – a full creative studio for worldbuilding, book writing, game development, music, language creation, and image concepts. Now in open beta."
   />
-  <style>
-    :root {
-      --bg: #03040a;
-      --bg-alt: #050814;
-      --panel: #090e1a;
-      --accent: #6be6ff;
-      --accent-strong: #ff6bd5;
-      --accent-soft: rgba(107, 230, 255, 0.15);
-      --text: #e9eef9;
-      --text-soft: #9aa4c0;
-      --border: #181e31;
-      --danger: #ff4b6e;
-      --radius-lg: 20px;
-      --radius-md: 12px;
-      --shadow-soft: 0 22px 50px rgba(0, 0, 0, 0.7);
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-sans);
-      background: radial-gradient(circle at top, #141c33 0, #03040a 55%, #000 100%);
-      color: var(--text);
-      min-height: 100%;
-      scroll-behavior: smooth;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Layout */
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 16px 40px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to bottom,
-        rgba(3, 4, 10, 0.96),
-        rgba(3, 4, 10, 0.9),
-        rgba(3, 4, 10, 0.0)
-      );
-      border-bottom: 1px solid rgba(107, 230, 255, 0.15);
-    }
-
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 16px 8px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 0 18px rgba(107, 230, 255, 0.6);
-      background: radial-gradient(circle at 20% 0, #6be6ff, #ff6bd5 35%, #151a2a 90%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-text h1 {
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-text span {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      font-size: 13px;
-    }
-
-    nav a {
-      color: var(--text-soft);
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .nav-cta {
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(107, 230, 255, 0.7);
-      background: radial-gradient(circle at top, rgba(107, 230, 255, 0.25), #050814);
-      color: #05060a;
-      font-size: 12px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 10px 26px rgba(107, 230, 255, 0.35);
-    }
-
-    .nav-cta span {
-      color: #05060a;
-    }
-
-    .nav-cta:hover {
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    /* Mobile nav */
-    .nav-toggle {
-      display: none;
-      border: 1px solid rgba(107, 230, 255, 0.4);
-      border-radius: 999px;
-      background: rgba(3, 5, 12, 0.9);
-      color: var(--text);
-      padding: 4px 10px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-
-    .nav-links {
-      display: flex;
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: rgba(3, 4, 10, 0.98);
-        border-top: 1px solid rgba(107, 230, 255, 0.2);
-        padding: 8px 16px 10px;
-      }
-      .nav-links.open {
-        display: flex;
-      }
-      .nav-toggle {
-        display: inline-flex;
-      }
-      .nav-inner {
-        padding-bottom: 6px;
-      }
-    }
-
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3.5fr) minmax(0, 3fr);
-      gap: 24px;
-      margin-top: 26px;
-      align-items: center;
-    }
-
-    .hero-left h2 {
-      margin: 0 0 10px;
-      font-size: 30px;
-      line-height: 1.1;
-    }
-
-    .hero-left h2 span.highlight {
-      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-left p {
-      margin: 0 0 14px;
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.5;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 8px 0 14px;
-    }
-
-    .pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(107, 230, 255, 0.35);
-      background: rgba(5, 7, 16, 0.9);
-      font-size: 11px;
-      color: var(--text-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #38f58c;
-      box-shadow: 0 0 10px rgba(56, 245, 140, 0.9);
-    }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .btn-primary {
-      border-radius: 999px;
-      border: none;
-      padding: 9px 16px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #05060a;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 16px 32px rgba(107, 230, 255, 0.4);
-    }
-
-    .btn-secondary {
-      border-radius: 999px;
-      border: 1px solid rgba(107, 230, 255, 0.3);
-      padding: 9px 14px;
-      background: rgba(5, 7, 16, 0.95);
-      color: var(--text);
-      font-size: 13px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-footnote {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
-
-    .hero-right {
-      background: radial-gradient(circle at top, rgba(107, 230, 255, 0.25), #050814 55%, #020308 100%);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(107, 230, 255, 0.4);
-      padding: 10px 10px 12px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-bottom: 6px;
-    }
-
-    .hero-card-header span.badge {
-      border-radius: 999px;
-      padding: 3px 8px;
-      border: 1px solid rgba(107, 230, 255, 0.8);
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 9px;
-    }
-
-    .hero-chat-box {
-      background: #050814;
-      border-radius: 12px;
-      border: 1px solid rgba(24, 30, 49, 0.9);
-      padding: 8px;
-      max-height: 260px;
-      overflow: hidden;
-    }
-
-    .hero-msg {
-      margin-bottom: 6px;
-      font-size: 11px;
-    }
-
-    .hero-msg .role {
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 2px;
-    }
-
-    .hero-msg .bubble {
-      border-radius: 10px;
-      padding: 6px 8px;
-      background: rgba(8, 12, 24, 0.95);
-      border: 1px solid rgba(107, 230, 255, 0.18);
-    }
-
-    .hero-msg.assistant .bubble {
-      border-color: rgba(107, 230, 255, 0.6);
-      box-shadow: 0 0 12px rgba(107, 230, 255, 0.35);
-    }
-
-    /* Sections */
-    section {
-      margin-top: 40px;
-    }
-
-    section h3 {
-      font-size: 20px;
-      margin: 0 0 8px;
-    }
-
-    section p.section-sub {
-      margin: 0 0 16px;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .card {
-      background: var(--panel);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 10px 12px;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-      font-size: 13px;
-    }
-
-    .card h4 {
-      margin: 0 0 6px;
-      font-size: 14px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--text-soft);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .card-tag {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    /* Pricing */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .price-card {
-      background: linear-gradient(145deg, #050814, #060a18);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 12px 14px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .price-card.featured {
-      border-color: rgba(107, 230, 255, 0.7);
-      box-shadow: 0 20px 45px rgba(107, 230, 255, 0.35);
-      position: relative;
-    }
-
-    .price-tier {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-soft);
-    }
-
-    .price-value {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .price-value span {
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--text-soft);
-    }
-
-    .pill-small {
-      border-radius: 999px;
-      padding: 2px 8px;
-      border: 1px solid rgba(107, 230, 255, 0.4);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .price-list {
-      list-style: none;
-      padding: 0;
-      margin: 4px 0 8px;
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
-    .price-list li::before {
-      content: "•";
-      margin-right: 5px;
-      color: var(--accent);
-    }
-
-    .price-btn {
-      border-radius: 999px;
-      padding: 7px 12px;
-      border: none;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .price-btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #05060a;
-      box-shadow: 0 12px 24px rgba(107, 230, 255, 0.4);
-    }
-
-    .price-btn.secondary {
-      background: rgba(5, 7, 16, 0.95);
-      color: var(--text);
-      border: 1px solid rgba(107, 230, 255, 0.4);
-    }
-
-    /* FAQ */
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .faq-item {
-      background: var(--panel);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      padding: 8px 10px;
-      font-size: 13px;
-    }
-
-    .faq-item strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    footer {
-      margin-top: 36px;
-      font-size: 11px;
-      color: var(--text-soft);
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-logo">
-          <!-- Your actual PNG logo file -->
-          <!-- Save your logo as logoBookWormAI.png in this same folder -->
-          <img src="logoBookWormAI.png" alt="Book Worm AI Logo" />
-        </div>
-        <div class="brand-text">
-          <h1>Book Worm AI</h1>
-          <span>AAA Story · Game Dev · Music · Languages</span>
-        </div>
+  <!-- Beta Banner -->
+  <div class="beta-banner">
+    <span class="beta-pill">BETA</span>
+    <span>Book Worm AI is in open beta. Features are evolving fast — feedback is welcome.</span>
+  </div>
+
+  <!-- Main Layout -->
+  <header class="site-header">
+    <div class="logo-wrap">
+      <!-- Your real logo image file; make sure logoBookWormAI.png is in this folder -->
+      <img src="logoBookWormAI.png" alt="Book Worm AI Logo" class="logo-img" />
+      <div class="logo-text">
+        <span class="logo-title">Book Worm AI</span>
+        <span class="logo-subtitle">Create Worlds. Write Stories. Build Games.</span>
       </div>
-
-      <button class="nav-toggle" id="navToggle">☰ Menu</button>
-
-      <nav class="nav-links" id="navLinks">
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#tabs">Workspaces</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li>
-            <a
-              href="https://bookwormai-backend-t8uv.onrender.com"
-              class="nav-cta"
-            >
-              <span>Launch App</span> ➤
-            </a>
-          </li>
-        </ul>
-      </nav>
     </div>
+
+    <nav class="main-nav">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#tabs">Creative Labs</a></li>
+        <li><a href="#pricing">Plans</a></li>
+        <li><a href="#beta">Beta Info</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="page">
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="hero-left">
-        <div class="pill-row">
-          <div class="pill">
-            <span class="dot"></span>
-            <span>Early Dev · Owner: Revan</span>
-          </div>
-          <div class="pill">Built for novels, games & OSTs</div>
-        </div>
-
-        <h2>
-          Turn your universes into
-          <span class="highlight">AAA worlds</span>
-          with one assistant.
-        </h2>
-        <p>
-          Book Worm AI is your personal studio-in-a-browser: a focused AI partner
-          for epic
-          <strong>storytelling</strong>, <strong>AAA game design</strong>,
-          <strong>music &amp; sound</strong>, and even custom
-          <strong>languages</strong>.  
-          Describe your vision once, and let her keep your canon consistent across
-          every tab.
+  <!-- Hero Section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>One AI Studio for Writers, Game Devs, and Worldbuilders.</h1>
+        <p class="hero-lead">
+          Book Worm AI is your personal creative studio: a worldbuilding engine, book-writing partner,
+          game-design lab, music assistant, language workshop, and image concept brain — all in one interface.
         </p>
 
-        <div class="hero-ctas">
+        <div class="hero-cta">
           <a
-            href="https://bookwormai-backend-t8uv.onrender.com"
-            class="btn-primary"
+            class="btn primary"
+            href="https://bookwormai-backend-t8uv.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Launch Book Worm Now ➤
+            Launch Book Worm AI
           </a>
-          <a href="#pricing" class="btn-secondary">
-            View Plans &amp; Access
-          </a>
+          <a href="#pricing" class="btn ghost">View Plans</a>
         </div>
 
-        <div class="hero-footnote">
-          Runs in your browser. Powered by OpenAI. Built to respect your locked-in
-          canon and IP.
-        </div>
+        <p class="hero-note">
+          No complicated setup — just open the app, pick your tab, and start building your universe.
+        </p>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-card-header">
-          <span>Live Preview · Story + Game + Music</span>
-          <span class="badge">In-App Chat</span>
-        </div>
-        <div class="hero-chat-box">
-          <div class="hero-msg user">
-            <div class="role">You · Storytelling Tab</div>
-            <div class="bubble">
-              Design the capital city of my ocean planet — it needs bioluminescent
-              coral towers, floating districts, and a hidden temple for my Grey
-              Order.
-            </div>
-          </div>
-          <div class="hero-msg assistant">
-            <div class="role">Book Worm</div>
-            <div class="bubble">
-              Understood. I’ll anchor the city on a massive living reef, with
-              manta-shaped platforms supporting upper districts. The hidden temple
-              will sit at the trench edge, accessible only to those who can
-              manipulate the planet’s tidal forces. I’ll keep all future lore
-              consistent with this layout.
-            </div>
-          </div>
-          <div class="hero-msg user">
-            <div class="role">You · Game Dev Tab</div>
-            <div class="bubble">
-              Turn that into a level: traversal, combat zones, boss arena, and
-              optional side paths for lore pickups.
-            </div>
-          </div>
-          <div class="hero-msg assistant">
-            <div class="role">Book Worm</div>
-            <div class="bubble">
-              Done. I’ll structure it as a vertical hub with three ascent routes,
-              encounter tiers tuned for mid-game, and a boss arena on a ringed
-              platform above the trench. Side paths snake into derelict coral
-              tunnels holding lore codices and optional mini-bosses.
-            </div>
-          </div>
+      <div class="hero-panel">
+        <div class="hero-card">
+          <h2>What can she do?</h2>
+          <ul>
+            <li>Design entire worlds and cultures from the core outward</li>
+            <li>Write books, scenes, characters, and lore-heavy timelines</li>
+            <li>Help with AAA-style game mechanics, combat, and systems</li>
+            <li>Sketch music concepts, lyrics, and ambient sound ideas</li>
+            <li>Create and organize languages, scripts, and naming systems</li>
+            <li>Generate prompts for high-quality concept art</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section id="features">
-      <h3>Built like a studio, not a toy.</h3>
-      <p class="section-sub">
-        Book Worm AI is designed for creators who take their worlds seriously:
-        locked-in canon, multi-project management, and deep-dive breakdowns.
+    <!-- Features Section -->
+    <section id="features" class="section">
+      <h2 class="section-title">Core Features</h2>
+      <p class="section-subtitle">
+        Built for creators who want more than a generic chatbot.
       </p>
 
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-tag">Canon Engine</div>
-          <h4>Locked lore across everything</h4>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Worldbuilding Engine</h3>
           <p>
-            Feed your existing worlds, races, flora, fauna, systems, and timelines
-            into the canon library. Book Worm treats that as law and avoids
-            contradictions as she expands your universe.
+            From planetary geology and biomes to flora, fauna, cultures, and magic/tech systems —
+            Book Worm helps you build worlds from the core outward, always respecting your canon.
           </p>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="card-tag">AAA Game Dev</div>
-          <h4>Bosses, systems &amp; modes</h4>
+        <article class="feature-card">
+          <h3>Book & Storytelling Lab</h3>
           <p>
-            Design combat systems, traversal, boss phases, ability trees, survival
-            modes, and more. Book Worm writes like a game designer, not a generic
-            chatbot.
+            Outline series, write chapters, deepen character arcs, and refine lore. Book Worm can
+            keep track of your universe while you focus on the story you want to tell.
           </p>
-        </div>
+        </article>
 
-        <div class="card">
-          <div class="card-tag">Music &amp; Audio</div>
-          <h4>Lyrics, OSTs &amp; soundscapes</h4>
+        <article class="feature-card">
+          <h3>Game Dev Support</h3>
           <p>
-            Use the Music tab for hooks, verses, and cinematic OST direction.
-            Combine with Voice Lab for narration tones, character voices, and
-            mood-based delivery.
+            Design combat systems, progression, enemy archetypes, boss phases, missions, and game modes.
+            Think of it as a game design partner built into your creative stack.
           </p>
-        </div>
+        </article>
+
+        <article class="feature-card">
+          <h3>Language Lab</h3>
+          <p>
+            Create new languages (visual and spoken), naming conventions, scripts, and linguistic rules
+            that feel consistent and believable across your world.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Image & Concept Support</h3>
+          <p>
+            Turn your descriptions into powerful prompts for high-quality concept art and reference images
+            to help visualize characters, locations, and key scenes.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Canon Memory (Per Project)</h3>
+          <p>
+            Projects stay isolated so your epic fantasy doesn’t bleed into your sci-fi horror.
+            Each project has its own canon, notes, and creative history.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- TABS / WORKSPACES -->
-    <section id="tabs">
-      <h3>Dedicated workspaces for each part of your universe.</h3>
-      <p class="section-sub">
-        Inside the app, each tab is its own desk — same brain, per-tab memory,
-        and project-based canon isolation.
+    <!-- Creative Tabs Overview -->
+    <section id="tabs" class="section section-alt">
+      <h2 class="section-title">Creative Labs Inside Book Worm</h2>
+      <p class="section-subtitle">
+        Switch tabs in-app to change how she thinks, without losing your project.
       </p>
 
-      <div class="cards-grid">
-        <div class="card">
-          <h4>🪶 Storytelling</h4>
+      <div class="tabs-grid">
+        <div class="tab-card">
+          <h3>Book Writing</h3>
           <p>
-            Worldbuilding, lore, cosmology, factions, and long-form narrative
-            design. Perfect for high-level vision, pre-bible work, and codices.
+            A focused space for novels, novellas, series, and lore tomes. Strong structure, continuity,
+            and character-driven storytelling.
           </p>
         </div>
-        <div class="card">
-          <h4>📚 Book Writing</h4>
+        <div class="tab-card">
+          <h3>Game Development</h3>
           <p>
-            Chapters, POV scenes, pacing, emotional arcs, and revision passes.
-            Think of this as your writing room tied directly into your canon.
+            For systems, mechanics, levels, enemies, AI behaviors, and player progression. Think “design doc”
+            meets creative partner.
           </p>
         </div>
-        <div class="card">
-          <h4>🎮 Game Dev</h4>
+        <div class="tab-card">
+          <h3>Worldbuilding</h3>
           <p>
-            Combat, encounters, bosses, level flow, modes, and progression.
-            Structured like real game design docs, not random ideas.
+            Deep dives into geography, history, pantheons, politics, factions, flora, fauna, and cosmology.
           </p>
         </div>
-        <div class="card">
-          <h4>🎵 Music Dev</h4>
+        <div class="tab-card">
+          <h3>Music & Audio</h3>
           <p>
-            Lyrics, beats, OST prompts, ambience, and sound direction for scenes
-            and levels. Designed to talk to producers and composers.
+            Lyric writing, OST concepts, mood pieces, and audio direction for games, trailers, or book soundtracks.
           </p>
         </div>
-        <div class="card">
-          <h4>🔡 Language Lab</h4>
+        <div class="tab-card">
+          <h3>Language Lab</h3>
           <p>
-            Build conlangs: phonetics, scripts, grammar, naming rules. Use it to
-            give your worlds distinct linguistic DNA.
+            Constructed languages, scripts, naming systems, and phonetic rules that can be reused across your stories and games.
           </p>
         </div>
-        <div class="card">
-          <h4>🧩 Coding</h4>
+        <div class="tab-card">
+          <h3>Image Lab</h3>
           <p>
-            Work on tools, scripts, game logic, and even Book Worm’s own future
-            upgrades in one place, with context-aware help.
+            Dedicated to crafting strong visual prompts and organizing the art you generate for your projects.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section id="pricing">
-      <h3>Early-access pricing for creators.</h3>
-      <p class="section-sub">
-        You keep control of your IP. Book Worm is here to accelerate your work,
-        not own it.
+    <!-- Pricing / Plans -->
+    <section id="pricing" class="section">
+      <h2 class="section-title">Beta Pricing</h2>
+      <p class="section-subtitle">
+        Simple plans while Book Worm is in active development. Prices and features may evolve after Beta.
       </p>
 
       <div class="pricing-grid">
-        <!-- BASIC -->
         <div class="price-card">
-          <div class="price-tier">Basic</div>
-          <div class="price-value">
-            Free trial → $10<span>/month</span>
-          </div>
-          <div class="pill-small">
-            <span>Great for testing &amp; outlining</span>
-          </div>
-          <ul class="price-list">
-            <li>30-day free trial</li>
-            <li>Core Storytelling &amp; Book Writing tabs</li>
-            <li>Light Game Dev &amp; Music usage</li>
-            <li>One active project at a time</li>
+          <h3>Basic</h3>
+          <p class="price-tag">$10 / month</p>
+          <p class="price-note">30-day free trial</p>
+          <ul>
+            <li>Access to Book Writing, Worldbuilding, and Game Dev tabs</li>
+            <li>Basic canon storage per project</li>
+            <li>Image prompt generation</li>
+            <li>Language Lab access</li>
           </ul>
           <a
+            class="btn primary block"
             href="https://buy.stripe.com/test_9B65kvcwNdYi3rN0Oq1Fe00"
-            class="price-btn primary"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Start Basic Trial ➤
+            Start Basic Trial
           </a>
         </div>
 
-        <!-- PRO -->
-        <div class="price-card featured">
-          <div class="price-tier">Pro</div>
-          <div class="price-value">
-            $20<span>/month</span>
-          </div>
-          <div class="pill-small">
-            <span>Recommended for active authors &amp; devs</span>
-          </div>
-          <ul class="price-list">
-            <li>All tabs unlocked</li>
-            <li>Multiple projects with isolated canon</li>
-            <li>Deeper dives &amp; longer outputs</li>
-            <li>Priority for future Voice &amp; Image integrations</li>
+        <div class="price-card price-featured">
+          <div class="badge">Most Popular</div>
+          <h3>Pro</h3>
+          <p class="price-tag">$20 / month</p>
+          <ul>
+            <li>Everything in Basic</li>
+            <li>More generous generation limits</li>
+            <li>Priority access to new labs and features</li>
+            <li>Ideal for serious worldbuilders & devs</li>
           </ul>
           <a
+            class="btn primary block"
             href="https://buy.stripe.com/test_14A6ozcwN5rM0fB7cO1Fe01"
-            class="price-btn primary"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Upgrade to Pro ➤
+            Upgrade to Pro
           </a>
         </div>
 
-        <!-- PATRON -->
         <div class="price-card">
-          <div class="price-tier">Patron</div>
-          <div class="price-value">
-            $49<span>/month</span>
-          </div>
-          <div class="pill-small">
-            <span>For power users &amp; supporters</span>
-          </div>
-          <ul class="price-list">
+          <h3>Patron</h3>
+          <p class="price-tag">$49 / month</p>
+          <ul>
             <li>Everything in Pro</li>
-            <li>Heavier usage and longer sessions</li>
-            <li>Helps fund ongoing upgrades &amp; dev time</li>
-            <li>Future perks (priority feedback, features, etc.)</li>
+            <li>Helps fund future upgrades & labs</li>
+            <li>Early access to experimental features</li>
+            <li>Supports ongoing development</li>
           </ul>
           <a
+            class="btn ghost block"
             href="https://buy.stripe.com/test_3cI5kv0O51bw5zV0Oq1Fe02"
-            class="price-btn secondary"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Support as a Patron ➤
+            Become a Patron
           </a>
         </div>
       </div>
+
+      <p class="tiny-note">
+        Stripe links are currently in test / beta mode. Pricing and availability may change as Book Worm AI grows.
+      </p>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq">
-      <h3>Questions you might have.</h3>
-      <p class="section-sub">
-        You can always iterate as you go — Book Worm is designed to evolve with
-        your worlds and your workflow.
+    <!-- Beta Info -->
+    <section id="beta" class="section section-alt">
+      <h2 class="section-title">About the Beta</h2>
+      <p class="section-subtitle">
+        Honest, in-progress, and actively evolving.
       </p>
 
-      <div class="faq-grid">
-        <div class="faq-item">
-          <strong>Is my lore and IP private?</strong>
-          <span>
-            Your canon lives in your own backend (currently on Render) and is
-            stored in your database. The whole point of Book Worm is to respect
-            your locked-in canon and keep your worlds coherent.
-          </span>
+      <div class="beta-grid">
+        <div class="beta-card">
+          <h3>What to expect</h3>
+          <p>
+            You’re using Book Worm AI while she’s still growing. That means you get early access to features,
+            but also the occasional rough edge, glitch, or upgrade-in-progress.
+          </p>
         </div>
-        <div class="faq-item">
-          <strong>Can I use this for multiple universes?</strong>
-          <span>
-            Yes. Each project ID acts like a separate universe with its own
-            canon. Switch the active project ID in the app to move between
-            worlds safely.
-          </span>
+        <div class="beta-card">
+          <h3>What’s coming next</h3>
+          <p>
+            Voice Lab, deeper analytics, stronger project isolation, enhanced cloud sync, and more advanced
+            game/music workflows are all planned as Book Worm evolves.
+          </p>
         </div>
-        <div class="faq-item">
-          <strong>Does it actually help with game dev?</strong>
-          <span>
-            The Game Dev tab is built for systems, encounters, level design, and
-            modes, written in a way you can translate into real engines like
-            Unreal or Unity.
-          </span>
-        </div>
-        <div class="faq-item">
-          <strong>Can I cancel or switch tiers later?</strong>
-          <span>
-            Yes. All billing is handled through Stripe, where you can cancel or
-            adjust your subscription at any time.
-          </span>
+        <div class="beta-card">
+          <h3>Your feedback matters</h3>
+          <p>
+            If you have ideas, issues, or dream features, your feedback can directly shape where Book Worm goes next.
+          </p>
         </div>
       </div>
     </section>
+  </main>
 
-    <footer>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
       <div>
-        © <span id="year"></span> Book Worm AI — Created by Revan. All rights reserved.
+        <div class="footer-title">Book Worm AI</div>
+        <div class="footer-subtitle">A creator-first AI studio, built by a worldbuilder.</div>
       </div>
-      <div>
-        <a href="https://github.com/TheRevanGaming/bookwormai-site" target="_blank">
-          Frontend Repo
-        </a>
-        &nbsp;·&nbsp;
-        <a href="https://github.com/TheRevanGaming/bookwormai-backend" target="_blank">
-          Backend Repo
-        </a>
-        &nbsp;·&nbsp;
-        <a href="#top">Back to top ↑</a>
+      <div class="footer-links">
+        <span>© <span id="year"></span> Book Worm AI</span>
+        <span class="dot">•</span>
+        <span>Beta Release</span>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
-  <script>
-    // Simple mobile nav toggle
-    const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-    });
-
-    // Current year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

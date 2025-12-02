@@ -1,40 +1,22 @@
 // Mobile nav toggle
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("mobile-menu-toggle");
-  const nav = document.querySelector(".main-nav");
+const navToggle = document.getElementById("nav-toggle");
+const navLinks = document.getElementById("nav-links");
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
-    });
-  }
-
-  // Smooth scroll for in-page links
-  const links = document.querySelectorAll('a[href^="#"]');
-  links.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-
-      const target = document.querySelector(targetId);
-      if (!target) return;
-
-      e.preventDefault();
-      window.scrollTo({
-        top: target.offsetTop - 70,
-        behavior: "smooth",
-      });
-
-      // Close mobile nav after click
-      if (nav && nav.classList.contains("show")) {
-        nav.classList.remove("show");
-      }
-    });
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
   });
 
-  // Footer year
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-});
+  // Close nav when a link is clicked (mobile)
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
+  });
+}
+
+// Set current year in footer
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
