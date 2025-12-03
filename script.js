@@ -91,7 +91,18 @@ let authMode = "login"; // "login" or "signup"
 
 // === INIT ===
 
+// This should log in the browser DevTools console.
+// And we’ll update the label so you see it visually.
+console.log("Book Worm marketing script.js loaded ✅");
+
+if (userEmailLabel) {
+  userEmailLabel.textContent = "Guest (JS OK)";
+}
+
+// Run setup once DOM is fully parsed
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded ✅");
+
   // Set year
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
@@ -108,11 +119,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Launch buttons
   if (launchBtn) {
     launchBtn.addEventListener("click", () => {
+      console.log("Launch Studio clicked");
       window.open(STUDIO_URL, "_blank");
     });
   }
   if (heroLaunchBtn) {
     heroLaunchBtn.addEventListener("click", () => {
+      console.log("Hero Launch Studio clicked");
       window.open(STUDIO_URL, "_blank");
     });
   }
@@ -120,11 +133,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Login buttons
   if (loginBtn) {
     loginBtn.addEventListener("click", () => {
+      console.log("Login clicked");
       openAuthModal("login");
     });
   }
   if (heroLoginBtn) {
     heroLoginBtn.addEventListener("click", () => {
+      console.log("Hero Login clicked");
       openAuthModal("signup");
     });
   }
@@ -275,7 +290,8 @@ function updateUserStatus() {
   const user = getCurrentUser();
   if (!user) {
     if (userEmailLabel) {
-      userEmailLabel.textContent = "Guest";
+      // show JS is running even if logged out
+      userEmailLabel.textContent = "Guest (JS OK)";
     }
     return;
   }
