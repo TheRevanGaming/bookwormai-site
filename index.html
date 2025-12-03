@@ -2,314 +2,354 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Book Worm AI – Beta Launch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Worm AI – AAA Story, Game & Music Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Book Worm AI – a full creative studio for worldbuilding, book writing, game development, music, language creation, and image concepts. Now in open beta."
+    content="Book Worm AI – a creator-first AI studio for worldbuilding, AAA game development, music, images, and voice."
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Beta Banner -->
-  <div class="beta-banner">
-    <span class="beta-pill">BETA</span>
-    <span>Book Worm AI is in open beta. Features are evolving fast — feedback is welcome.</span>
-  </div>
+  <div id="page">
 
-  <!-- Main Layout -->
-  <header class="site-header">
-    <div class="logo-wrap">
-      <!-- Your real logo image file; make sure logoBookWormAI.png is in this folder -->
-      <img src="logoBookWormAI.png" alt="Book Worm AI Logo" class="logo-img" />
-      <div class="logo-text">
-        <span class="logo-title">Book Worm AI</span>
-        <span class="logo-subtitle">Create Worlds. Write Stories. Build Games.</span>
-      </div>
+    <!-- Top Notification / Beta Badge -->
+    <div class="top-banner">
+      <span class="badge beta">OPEN BETA</span>
+      <span class="banner-text">
+        Book Worm AI is in active development. Features may evolve rapidly.
+      </span>
     </div>
 
-    <nav class="main-nav">
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        ☰
-      </button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#tabs">Creative Labs</a></li>
-        <li><a href="#pricing">Plans</a></li>
-        <li><a href="#beta">Beta Info</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <main>
-    <section id="hero" class="hero">
-      <div class="hero-content">
-        <h1>One AI Studio for Writers, Game Devs, and Worldbuilders.</h1>
-        <p class="hero-lead">
-          Book Worm AI is your personal creative studio: a worldbuilding engine, book-writing partner,
-          game-design lab, music assistant, language workshop, and image concept brain — all in one interface.
-        </p>
-
-        <div class="hero-cta">
-          <a
-            class="btn primary"
-            href="https://bookwormai-backend-t8uv.onrender.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Launch Book Worm AI
-          </a>
-          <a href="#pricing" class="btn ghost">View Plans</a>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="brand-block">
+        <img src="logoBookWormAI.png" alt="Book Worm AI Logo" class="logo-img" />
+        <div class="brand-text">
+          <h1>Book Worm AI</h1>
+          <p>AAA Creator Studio for Worlds, Games, Music & More</p>
         </div>
-
-        <p class="hero-note">
-          No complicated setup — just open the app, pick your tab, and start building your universe.
-        </p>
       </div>
 
-      <div class="hero-panel">
+      <nav class="main-nav">
+        <button class="nav-link" data-scroll-to="#features">Features</button>
+        <button class="nav-link" data-scroll-to="#domains">Domains</button>
+        <button class="nav-link" data-scroll-to="#pricing">Pricing</button>
+        <button class="nav-link" data-scroll-to="#faq">FAQ</button>
+      </nav>
+
+      <div class="account-controls">
+        <div id="user-status" class="user-status">
+          <span id="user-email-label" class="user-email-label">Guest</span>
+        </div>
+        <button id="login-btn" class="btn btn-ghost small">
+          Log In / Sign Up
+        </button>
+        <button id="launch-btn" class="btn btn-primary small">
+          Launch Studio
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <h2>One AI. Infinite Worlds.</h2>
+          <p>
+            Book Worm AI is your personal AAA studio: a single AI that can help
+            you build <strong>novels, game worlds, soundtracks, voice-acted scenes,</strong>
+            and <strong>cinematic visuals</strong> — all in one place.
+          </p>
+
+          <div class="hero-cta">
+            <button id="hero-launch-btn" class="btn btn-primary">
+              Open Book Worm Studio
+            </button>
+            <button id="hero-login-btn" class="btn btn-ghost">
+              Log In / Create Account
+            </button>
+          </div>
+
+          <p class="hero-note">
+            No corporate backing. Built by a single creator for other creators,
+            storytellers, game devs & musicians.
+          </p>
+        </div>
+
         <div class="hero-card">
-          <h2>What can she do?</h2>
-          <ul>
-            <li>Design entire worlds and cultures from the core outward</li>
-            <li>Write books, scenes, characters, and lore-heavy timelines</li>
-            <li>Help with AAA-style game mechanics, combat, and systems</li>
-            <li>Sketch music concepts, lyrics, and ambient sound ideas</li>
-            <li>Create and organize languages, scripts, and naming systems</li>
-            <li>Generate prompts for high-quality concept art</li>
+          <h3>What Book Worm AI does:</h3>
+          <ul class="checklist">
+            <li>Designs entire <strong>worlds, races, flora & fauna</strong></li>
+            <li>Builds full <strong>game systems, bosses, levels & DLC plans</strong></li>
+            <li>Writes <strong>novels, scenes, lore bibles & codices</strong></li>
+            <li>Helps compose <strong>lyrics, OST concepts & soundscapes</strong></li>
+            <li>Generates <strong>image prompts</strong> and integrates with image models</li>
           </ul>
+          <p class="hero-beta-label">
+            You’re early. This is the raw, evolving version of Book Worm AI.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section">
-      <h2 class="section-title">Core Features</h2>
-      <p class="section-subtitle">
-        Built for creators who want more than a generic chatbot.
+      <!-- Domains -->
+      <section id="domains" class="section domains">
+        <h2>Four Core Domains, One Brain</h2>
+        <div class="domain-grid">
+          <div class="domain-card">
+            <h3>Storytelling & Book Writing</h3>
+            <p>
+              Worldbuilding, character arcs, romance systems, codices, timelines,
+              and fully written scenes or chapters — all with continuity across
+              your universe.
+            </p>
+            <ul>
+              <li>Flora & fauna catalogs</li>
+              <li>Magic / tech / power systems</li>
+              <li>Series & saga planning</li>
+            </ul>
+          </div>
+
+          <div class="domain-card">
+            <h3>AAA Game Development</h3>
+            <p>
+              Design combat systems, enemy archetypes, boss phases, loot,
+              progression, and entire game modes with a layout like a real GDD
+              (Game Design Document).
+            </p>
+            <ul>
+              <li>Systems, modes, DLC & expansions</li>
+              <li>Quest & encounter design</li>
+              <li>Mechanics tuned for modern engines</li>
+            </ul>
+          </div>
+
+          <div class="domain-card">
+            <h3>Music & Audio Lab</h3>
+            <p>
+              Lyrics, hooks, OST ideas, ambience, SFX concepts, and future
+              integration with voice synthesis — made to support both games and books.
+            </p>
+            <ul>
+              <li>Song structures & vocal lines</li>
+              <li>OST cues & motifs</li>
+              <li>Sound design direction</li>
+            </ul>
+          </div>
+
+          <div class="domain-card">
+            <h3>Images, Languages & Voice</h3>
+            <p>
+              Create image prompts, build conlangs (visual & spoken), and design
+              voice styles for narration and characters.
+            </p>
+            <ul>
+              <li>Language Lab (alphabets, grammar)</li>
+              <li>Image prompt generator</li>
+              <li>Voice Lab roadmap for narration & characters</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="section features">
+        <h2>Why Book Worm AI Feels Different</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Creator-First Design</h3>
+            <p>
+              Built for a real working author & game dev workflow, not for generic
+              chats. Tabs for Storytelling, Game Dev, Music, Coding, and more.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Canon-Aware Brain</h3>
+            <p>
+              Feeds on your lore, keeps track of your canon, and avoids
+              contradicting your locked-in universe.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Project Isolation</h3>
+            <p>
+              Each project (each universe, book, or game) is isolated so your
+              horror series never bleeds into your space opera.
+            </p>
+          </div>
+          <div class="feature-card">
+            <h3>Admin / Owner Mode</h3>
+            <p>
+              The creator – you – has an elevated mode with analytics, power
+              features, and infinite generation during development.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="section pricing">
+        <h2>Simple, Honest Beta Pricing</h2>
+        <p class="pricing-note">
+          All billing is handled through <strong>Stripe</strong>. Plans and pricing
+          may change after beta. You keep your beta perks.
+        </p>
+
+        <div class="pricing-grid">
+
+          <div class="pricing-card">
+            <h3>Basic</h3>
+            <p class="price">
+              Free 30 days<br />
+              then <strong>$10 / month</strong>
+            </p>
+            <ul>
+              <li>Access to core Book Worm AI</li>
+              <li>Storytelling, Game Dev & Music tabs</li>
+              <li>Limited image & voice usage</li>
+            </ul>
+            <a
+              href="https://buy.stripe.com/test_9B65kvcwNdYi3rN0Oq1Fe00"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start Basic Trial
+            </a>
+          </div>
+
+          <div class="pricing-card highlight">
+            <h3>Pro</h3>
+            <p class="price">
+              <strong>$20 / month</strong>
+            </p>
+            <ul>
+              <li>Everything in Basic</li>
+              <li>Higher limits & deeper dives</li>
+              <li>Priority features as they roll out</li>
+            </ul>
+            <a
+              href="https://buy.stripe.com/test_14A6ozcwN5rM0fB7cO1Fe01"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Upgrade to Pro
+            </a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Patron</h3>
+            <p class="price">
+              <strong>$49 / month</strong>
+            </p>
+            <ul>
+              <li>Support ongoing development</li>
+              <li>Earliest access to experimental labs</li>
+              <li>Helps Book Worm grow long-term</li>
+            </ul>
+            <a
+              href="https://buy.stripe.com/test_3cI5kv0O51bw5zV0Oq1Fe02"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Become a Patron
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section faq">
+        <h2>Beta FAQ</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Is this a finished product?</h3>
+            <p>
+              No. Book Worm AI is an evolving tool in active development. Features
+              may change, break, and improve rapidly. You’re getting in early.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Where does the AI actually run?</h3>
+            <p>
+              The AI core runs on a dedicated backend (currently hosted via Render)
+              using OpenAI models under the hood, wrapped in a custom brain
+              designed specifically for your worlds and projects.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Do I need to log in to use it?</h3>
+            <p>
+              For now, accounts are stored per browser and per device. That will
+              eventually expand into full multi-device, cloud-backed accounts.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I cancel my subscription?</h3>
+            <p>
+              Yes. All subscriptions are handled through Stripe. You can pause or
+              cancel anytime via your Stripe customer portal.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Book Worm AI • Created by Revan Knight</p>
+      <p class="footer-small">
+        This is a solo creator project in open beta. Thank you for supporting it.
       </p>
+    </footer>
 
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3>Worldbuilding Engine</h3>
-          <p>
-            From planetary geology and biomes to flora, fauna, cultures, and magic/tech systems —
-            Book Worm helps you build worlds from the core outward, always respecting your canon.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Book & Storytelling Lab</h3>
-          <p>
-            Outline series, write chapters, deepen character arcs, and refine lore. Book Worm can
-            keep track of your universe while you focus on the story you want to tell.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Game Dev Support</h3>
-          <p>
-            Design combat systems, progression, enemy archetypes, boss phases, missions, and game modes.
-            Think of it as a game design partner built into your creative stack.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Language Lab</h3>
-          <p>
-            Create new languages (visual and spoken), naming conventions, scripts, and linguistic rules
-            that feel consistent and believable across your world.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Image & Concept Support</h3>
-          <p>
-            Turn your descriptions into powerful prompts for high-quality concept art and reference images
-            to help visualize characters, locations, and key scenes.
-          </p>
-        </article>
-
-        <article class="feature-card">
-          <h3>Canon Memory (Per Project)</h3>
-          <p>
-            Projects stay isolated so your epic fantasy doesn’t bleed into your sci-fi horror.
-            Each project has its own canon, notes, and creative history.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Creative Tabs Overview -->
-    <section id="tabs" class="section section-alt">
-      <h2 class="section-title">Creative Labs Inside Book Worm</h2>
-      <p class="section-subtitle">
-        Switch tabs in-app to change how she thinks, without losing your project.
-      </p>
-
-      <div class="tabs-grid">
-        <div class="tab-card">
-          <h3>Book Writing</h3>
-          <p>
-            A focused space for novels, novellas, series, and lore tomes. Strong structure, continuity,
-            and character-driven storytelling.
-          </p>
-        </div>
-        <div class="tab-card">
-          <h3>Game Development</h3>
-          <p>
-            For systems, mechanics, levels, enemies, AI behaviors, and player progression. Think “design doc”
-            meets creative partner.
-          </p>
-        </div>
-        <div class="tab-card">
-          <h3>Worldbuilding</h3>
-          <p>
-            Deep dives into geography, history, pantheons, politics, factions, flora, fauna, and cosmology.
-          </p>
-        </div>
-        <div class="tab-card">
-          <h3>Music & Audio</h3>
-          <p>
-            Lyric writing, OST concepts, mood pieces, and audio direction for games, trailers, or book soundtracks.
-          </p>
-        </div>
-        <div class="tab-card">
-          <h3>Language Lab</h3>
-          <p>
-            Constructed languages, scripts, naming systems, and phonetic rules that can be reused across your stories and games.
-          </p>
-        </div>
-        <div class="tab-card">
-          <h3>Image Lab</h3>
-          <p>
-            Dedicated to crafting strong visual prompts and organizing the art you generate for your projects.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing / Plans -->
-    <section id="pricing" class="section">
-      <h2 class="section-title">Beta Pricing</h2>
-      <p class="section-subtitle">
-        Simple plans while Book Worm is in active development. Prices and features may evolve after Beta.
-      </p>
-
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>Basic</h3>
-          <p class="price-tag">$10 / month</p>
-          <p class="price-note">30-day free trial</p>
-          <ul>
-            <li>Access to Book Writing, Worldbuilding, and Game Dev tabs</li>
-            <li>Basic canon storage per project</li>
-            <li>Image prompt generation</li>
-            <li>Language Lab access</li>
-          </ul>
-          <a
-            class="btn primary block"
-            href="https://buy.stripe.com/test_9B65kvcwNdYi3rN0Oq1Fe00"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Start Basic Trial
-          </a>
+    <!-- AUTH MODAL -->
+    <div id="auth-modal" class="auth-modal hidden">
+      <div class="auth-backdrop"></div>
+      <div class="auth-panel">
+        <div class="auth-header">
+          <h3 id="auth-title">Log In</h3>
+          <button id="auth-close" class="auth-close">✕</button>
         </div>
 
-        <div class="price-card price-featured">
-          <div class="badge">Most Popular</div>
-          <h3>Pro</h3>
-          <p class="price-tag">$20 / month</p>
-          <ul>
-            <li>Everything in Basic</li>
-            <li>More generous generation limits</li>
-            <li>Priority access to new labs and features</li>
-            <li>Ideal for serious worldbuilders & devs</li>
-          </ul>
-          <a
-            class="btn primary block"
-            href="https://buy.stripe.com/test_14A6ozcwN5rM0fB7cO1Fe01"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Upgrade to Pro
-          </a>
+        <div class="auth-tabs">
+          <button id="auth-tab-login" class="auth-tab active">Log In</button>
+          <button id="auth-tab-signup" class="auth-tab">Create Account</button>
         </div>
 
-        <div class="price-card">
-          <h3>Patron</h3>
-          <p class="price-tag">$49 / month</p>
-          <ul>
-            <li>Everything in Pro</li>
-            <li>Helps fund future upgrades & labs</li>
-            <li>Early access to experimental features</li>
-            <li>Supports ongoing development</li>
-          </ul>
-          <a
-            class="btn ghost block"
-            href="https://buy.stripe.com/test_3cI5kv0O51bw5zV0Oq1Fe02"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Become a Patron
-          </a>
-        </div>
-      </div>
+        <form id="auth-form" class="auth-form">
+          <label>
+            Email
+            <input type="email" id="auth-email" required />
+          </label>
 
-      <p class="tiny-note">
-        Stripe links are currently in test / beta mode. Pricing and availability may change as Book Worm AI grows.
-      </p>
-    </section>
+          <label>
+            Password
+            <input type="password" id="auth-password" minlength="4" required />
+          </label>
 
-    <!-- Beta Info -->
-    <section id="beta" class="section section-alt">
-      <h2 class="section-title">About the Beta</h2>
-      <p class="section-subtitle">
-        Honest, in-progress, and actively evolving.
-      </p>
+          <label id="auth-confirm-wrapper" class="hidden">
+            Confirm Password
+            <input type="password" id="auth-password-confirm" minlength="4" />
+          </label>
 
-      <div class="beta-grid">
-        <div class="beta-card">
-          <h3>What to expect</h3>
-          <p>
-            You’re using Book Worm AI while she’s still growing. That means you get early access to features,
-            but also the occasional rough edge, glitch, or upgrade-in-progress.
+          <p class="auth-note">
+            Accounts are stored in your browser only (beta). This is a temporary
+            system until full multi-device accounts are released.
           </p>
-        </div>
-        <div class="beta-card">
-          <h3>What’s coming next</h3>
-          <p>
-            Voice Lab, deeper analytics, stronger project isolation, enhanced cloud sync, and more advanced
-            game/music workflows are all planned as Book Worm evolves.
-          </p>
-        </div>
-        <div class="beta-card">
-          <h3>Your feedback matters</h3>
-          <p>
-            If you have ideas, issues, or dream features, your feedback can directly shape where Book Worm goes next.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-title">Book Worm AI</div>
-        <div class="footer-subtitle">A creator-first AI studio, built by a worldbuilder.</div>
-      </div>
-      <div class="footer-links">
-        <span>© <span id="year"></span> Book Worm AI</span>
-        <span class="dot">•</span>
-        <span>Beta Release</span>
+          <button type="submit" class="btn btn-primary wide" id="auth-submit-btn">
+            Log In
+          </button>
+        </form>
+
+        <div id="auth-message" class="auth-message"></div>
       </div>
     </div>
-  </footer>
+
+  </div>
 
   <script src="script.js"></script>
 </body>
